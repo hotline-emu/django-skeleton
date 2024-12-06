@@ -9,7 +9,7 @@ build: ## Build the app.
 	docker compose build
 
 pytest: ## Test the app.
-	docker compose run app bash -c 'poetry run pytest'
+	docker compose run app bash -c 'poetry run python manage.py pytest'
 
 pylint: ## Lint the app.
 	docker compose run app bash -c 'poetry run python manage.py pylint'
