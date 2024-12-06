@@ -8,5 +8,8 @@ help:
 build: ## Build the app.
 	docker compose build
 
-pytest: ## Build the app.
+pytest: ## Test the app.
 	docker compose run app bash -c 'poetry run pytest'
+
+pylint: ## Lint the app.
+	docker compose run app bash -c 'poetry run python manage.py pylint'
