@@ -1,13 +1,13 @@
-from django.db import models
+from django.db.models import Model, CharField, TextField, DateTimeField
 
 
-class Item(models.Model):
-    name = models.CharField(max_length=255)
-    description = models.TextField(blank=True)
-    created_at = models.DateTimeField(auto_now_add=True)
+class Item(Model):
+    name = CharField(max_length=255)
+    description = TextField(blank=True)
+    created_at = DateTimeField(auto_now_add=True)
 
     class Meta:
-        app_label = "app"  # Explicitly declare the app label
+        app_label = "app"
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.name

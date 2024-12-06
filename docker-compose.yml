@@ -1,7 +1,6 @@
-version: '3.8'
-
 services:
   app:
+    container_name: app_container
     build:
       context: .
     ports:
@@ -16,6 +15,7 @@ services:
       - sh -c "python manage.py runserver 0.0.0.0:8000"
 
   db:
+    container_name: db_container
     image: postgres:15
     restart: always
     volumes:
