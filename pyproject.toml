@@ -31,8 +31,8 @@ python_files = ["tests/test_*.py"]
 [tool.mypy]
 python_version = "3.10"
 warn_unused_configs = true
-strict = true  # Enables all strict type-checking flags
+strict = true
 plugins = ["mypy_django_plugin.main"]
 
 [tool.django-stubs]
-django_settings_module = "config.settings"  # Correct way to specify settings
+django_settings_module = "config.settings"
