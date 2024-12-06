@@ -16,6 +16,9 @@ psycopg2-binary = "^2.9.10"
 [tool.poetry.group.dev.dependencies]
 pylint = "^3.3.2"
 pylint-django = "^2.6.1"
+mypy = "^1.13.0"
+django-stubs = "^5.1.1"
+mypy-extensions = "^1.0.0"
 
 [build-system]
 requires = ["poetry-core"]
@@ -24,3 +27,12 @@ build-backend = "poetry.core.masonry.api"
 [tool.pytest.ini_options]
 DJANGO_SETTINGS_MODULE = "config.settings"
 python_files = ["tests/test_*.py"]
+
+[tool.mypy]
+python_version = "3.10"
+warn_unused_configs = true
+strict = true  # Enables all strict type-checking flags
+plugins = ["mypy_django_plugin.main"]
+
+[tool.django-stubs]
+django_settings_module = "config.settings"  # Correct way to specify settings

@@ -13,3 +13,6 @@ pytest: ## Test the app.
 
 pylint: ## Lint the app.
 	docker compose run app bash -c 'poetry run python manage.py pylint'
+
+mypy: ## Static analysis on the app.
+	docker compose run app bash -c 'poetry run python manage.py mypy'
