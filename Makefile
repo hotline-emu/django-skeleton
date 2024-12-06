@@ -7,3 +7,6 @@ help:
 
 containers-build: ## Build the app.
 	docker compose build
+
+containers-test: ## Build the app.
+	docker compose run app bash -c 'poetry run pytest'

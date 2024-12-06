@@ -10,14 +10,20 @@ services:
       - .:/app
     environment:
       - DJANGO_SETTINGS_MODULE=config.settings
-    command: >
-      sh -c "python manage.py migrate &&
-             python manage.py runserver 0.0.0.0:8000"
+    depends_on:
+      - db
+    command:
+      - sh -c "python manage.py runserver 0.0.0.0:8000"
 
-  test:
-    build:
-      context: .
+  db:
+    image: postgres:15
+    restart: always
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
     environment:
-      - DJANGO_SETTINGS_MODULE=config.settings
-    command: >
-      sh -c "pytest"
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: drf_app_db
+
+volumes:
+  postgres_data:

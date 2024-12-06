@@ -1,5 +1,7 @@
+import pytest
 from app.serializers.item import ItemSerializer
 
+@pytest.mark.django_db
 def test_item_serializer():
     data = {"name": "Test Item", "description": "Test Description"}
     serializer = ItemSerializer(data=data)
